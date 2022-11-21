@@ -81,5 +81,33 @@ namespace AppMinhasCompras.View
                 lista_produtos.Remove(produto_selecionado);
             }
         }
+
+        private void txt_busca_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string buscou = e.NewTextValue;
+
+            System.Threading.Tasks.Task.Run(async () =>
+            {
+                List<Produto> temp = await App.Database.Search(buscou);
+
+                lista_produtos.Clear();
+
+                foreach (Produto item in temp)
+                {
+                    lista_produtos.Add(item);
+                }
+
+                ref_carregando.IsRefreshing = false;
+
+            });
+        }
+
+        private void lst_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PushAsync(new EditarProduto
+            {
+                BindingContext = (Produto)e.SelectedItem
+            });
+        }
     }
 }
