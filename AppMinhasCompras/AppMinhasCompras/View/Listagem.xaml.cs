@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AppMinhasCompras.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +35,27 @@ namespace AppMinhasCompras.View
         private void ToolbarItem_Clicked_Somar(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnAppearing()
+        {
+
+            ObservableCollection<Produto> lista_produtos = new ObservableCollection<Produto>();
+
+            System.Threading.Tasks.Task.Run(async () =>
+            {
+                List<Produto> temp = await App.Database.GetAll();
+
+                foreach (Produto item in temp)
+                {
+                    lista_produtos.Add(item);
+                }
+
+                ref_carregando.IsRefreshing = false;
+
+            });
+
+            lst_produtos.ItemsSource = lista_produtos;
         }
     }
 }
