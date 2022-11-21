@@ -14,6 +14,9 @@ namespace AppMinhasCompras.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Listagem : ContentPage
     {
+
+        ObservableCollection<Produto> lista_produtos = new ObservableCollection<Produto>();
+
         public Listagem()
         {
             InitializeComponent();
@@ -34,14 +37,15 @@ namespace AppMinhasCompras.View
 
         private void ToolbarItem_Clicked_Somar(object sender, EventArgs e)
         {
+            double soma = lista_produtos.Sum(i => i.Preco * i.Quantidade);
 
+            string msg = "O total da compra é: " + soma;
+
+            DisplayAlert("Ops", msg, "OK");
         }
 
         protected override void OnAppearing()
         {
-
-            ObservableCollection<Produto> lista_produtos = new ObservableCollection<Produto>();
-
             System.Threading.Tasks.Task.Run(async () =>
             {
                 List<Produto> temp = await App.Database.GetAll();

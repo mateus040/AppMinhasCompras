@@ -23,8 +23,8 @@
                         <Grid RowDefinitions="Auto"
                               ColumnDefinitions="*, Auto, Auto">
                             <Label Grid.Row="0" Grid.Column="0" Text="Descrição" />
-                            <Label Grid.Row="0" Grid.Column="0" Text="Qnt" />
-                            <Label Grid.Row="0" Grid.Column="0" Text="Preço" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="Qnt" />
+                            <Label Grid.Row="0" Grid.Column="2" Text="Preço" />
                         </Grid>
                     </ListView.Header>
 
@@ -34,8 +34,8 @@
                                 <Grid RowDefinitions="Auto"
                                       ColumnDefinitions="*, Auto, Auto">
                                       <Label Grid.Row="0" Grid.Column="0" Text="{Binding Descricao}" />
-                                      <Label Grid.Row="0" Grid.Column="0" Text="{Binding Quantidade}" />
-                                      <Label Grid.Row="0" Grid.Column="0" Text="{Binding Preco}" />
+                                      <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}" />
+                                      <Label Grid.Row="0" Grid.Column="2" Text="{Binding Preco}" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
