@@ -40,10 +40,8 @@ namespace AppMinhasCompras.View
         private void ToolbarItem_Clicked_Somar(object sender, EventArgs e)
         {
             double soma = lista_produtos.Sum(i => i.Preco * i.Quantidade);
-
-            string msg = "O total da compra é: " + soma;
-
-            DisplayAlert("Ops", msg, "OK");
+            
+            DisplayAlert("Total é: ", soma.ToString("C"), "OK");
         }
 
         protected override void OnAppearing()

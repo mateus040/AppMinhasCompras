@@ -10,16 +10,20 @@
     
     <ContentPage.Content>
         <StackLayout>
+            <Frame>
+                <StackLayout>
 
-            <Label Text="Descrição:" />
-            <Entry x:Name="txt_descricao" Text="{Binding Descricao}" />
+                    <Label Text="Descrição:" />
+                    <Entry x:Name="txt_descricao" Text="{Binding Descricao}" />
 
-            <Label Text="Quantidade:" />
-            <Entry x:Name="txt_quantidade" Text="{Binding Quantidade}" />
+                    <Label Text="Quantidade:" />
+                    <Entry x:Name="txt_quantidade" Text="{Binding Quantidade}" />
 
-            <Label Text="Preço:" />
-            <Entry x:Name="txt_preco" Text="{Binding Preco}" />
+                    <Label Text="Preço:" />
+                    <Entry x:Name="txt_preco" Text="{Binding Preco}" />
 
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
